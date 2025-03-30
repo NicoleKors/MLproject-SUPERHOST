@@ -9,7 +9,8 @@ The main research question is:
 **Can we predict whether a host will be a Superhost based on available Airbnb listing data?**
 
 ### What do we already know?
-Airbnb provides a variety of features related to host performance, listing characteristics, location, and user ratings. Some of these features are known to influence the likelihood of a host becoming a Superhost (e.g., response rate, number of reviews, ratings).
+Airbnb provides a wide variety of features related to hosts, such as their responsiveness, number of reviews, listing characteristics (e.g., number of rooms, location, square footage), and user ratings.  
+Some of these features—especially host responsiveness, number of reviews, and quality ratings—are known to influence whether a host becomes a Superhost.
 
 ### What are we aiming to achieve?
 The aim is to build a machine learning model that can accurately classify whether a host is a Superhost based on relevant features.  
@@ -41,8 +42,16 @@ I combined traditional feature selection techniques with model-based feature imp
 - Filled missing values using median/mode/mean depending on context
 
 ### 4. One-Hot Encoding
-- Categorical variables were transformed using `get_dummies()` where needed
+Categorical variables such as : 'room type' ,'country' and 'host response time' were transformed using the `pd.get_dummies()` method.
 
+This created binary features for each unique category, for example:
+- `Room Type_private room`
+- `Country_United Kingdom`
+- `Host Response Time_within an hour`
+
+To prevent overfitting and high dimensionality, One-Hot Encoding was applied selectively:
+- Only on categorical features deemed relevant after EDA.
+- Columns with low predictive power or too many rare categories were excluded from the final dataset.
 ### 5. Feature Engineering & Selection
 - Created new features (e.g., `Host Years`, `Days Since Review`)
 - Normalized selected numeric features
