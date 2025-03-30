@@ -1,4 +1,6 @@
 # Airbnb Superhost Prediction Project
+References: https://www.kaggle.com/datasets/thedevastator/berlin-airbnb-ratings-how-hosts-
+measure-up
 
 ## Project Overview: Understanding the Basics and Goals
 
