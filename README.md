@@ -9,7 +9,7 @@ The main research question is:
 **Can we predict whether a host will be a Superhost based on available Airbnb listing data?**
 
 ### What do we already know?
-Airbnb provides a wide variety of features related to hosts, such as their responsiveness, number of reviews, listing characteristics (e.g., number of rooms, location, square footage), and user ratings.  
+Airbnb provides a wide variety of features related to hosts, such as their responsiveness, number of reviews, listing characteristics (number of rooms, location , square footage) and user ratings.  
 Some of these features—especially host responsiveness, number of reviews, and quality ratings—are known to influence whether a host becomes a Superhost.
 
 ### What are we aiming to achieve?
@@ -17,7 +17,7 @@ The aim is to build a machine learning model that can accurately classify whethe
 Success is defined as achieving a reasonable accuracy while maintaining generalizability and avoiding overfitting.
 
 ### What factors affect our results?
-Variables such as rating scores, engagement metrics, and historical review activity are among the strongest predictors. However, features like `Overall Rating` and `Total Ratings Score` were found to be overly dominant, and were intentionally excluded in some model versions to evaluate performance fairly. 
+Variables such as rating scores, engagement metrics, and historical review activity are among the strongest predictors. However, features like 'overall rating' and 'total ratings score' were found to be overly dominant, and were intentionally excluded in some model versions to evaluate performance fairly. 
 
 ### Is there something new we can use?
 I combined traditional feature selection techniques with model-based feature importance, and iteratively refined the feature set to avoid information leakage, as can be seen in the project notebook. I also experimented with several classification algorithms, including Random Forest, AdaBoost, and XGBoost to ensure the best results.
@@ -30,11 +30,10 @@ I combined traditional feature selection techniques with model-based feature imp
 - Merged multiple sources into one DataFrame
 - Reduced large categorical variables
 - Cleaned and standardized textual and numeric data
-- Transformed and normalized features using `StandardScaler` (`Price`, `Engagemnt level`)
 
 ### 2. Exploratory Data Analysis (EDA)
 - Visualized distributions and trends using histograms and bar plots(as can be seen in the notebook)
-- Analyzed correlations with the target variable `Is Superhost`
+- Analyzed correlations with the target variable 'is superhost'
 - Identified highly correlated features for potential removal
 
 ### 3. Data Cleansing
@@ -45,16 +44,16 @@ I combined traditional feature selection techniques with model-based feature imp
 Categorical variables such as : 'room type' ,'country' and 'host response time' were transformed using the `pd.get_dummies()` method.
 
 This created binary features for each unique category, for example:
-- `Room Type_private room`
-- `Country_United Kingdom`
-- `Host Response Time_within an hour`
+- 'Room Type_private room'
+- 'Country_United Kingdom'
+- 'Host Response Time_within an hour'
 
 To prevent overfitting and high dimensionality, One-Hot Encoding was applied selectively:
 - Only on categorical features deemed relevant after EDA.
 - Columns with low predictive power or too many rare categories were excluded from the final dataset.
 ### 5. Feature Engineering & Selection
-- Created new features (e.g., `Host Years`, `Days Since Review`)
-- Normalized selected numeric features
+- Created new features (e.g., 'Host Years', 'Days Since Review')
+- Transformed and normalized features using `StandardScaler` ('Price', 'Engagemnt level')
 - Performed correlation filtering and removed features with correlation > 0.2
 - Manually removed features with overly high predictive power to avoid overfitting
 
