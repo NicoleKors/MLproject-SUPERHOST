@@ -19,7 +19,7 @@ Variables such as rating scores, engagement metrics, and historical review activ
 ### Is there something new we can use?
 I combined traditional feature selection techniques with model-based feature importance, and iteratively refined the feature set to avoid information leakage, as can be seen in the project notebook. I also experimented with several classification algorithms, including Random Forest, AdaBoost, and XGBoost to ensure the best results.
 
----
+
 
 ## Project Workflow Summary
 
@@ -27,7 +27,7 @@ I combined traditional feature selection techniques with model-based feature imp
 - Merged multiple sources into one DataFrame
 - Reduced large categorical variables
 - Cleaned and standardized textual and numeric data
-- Transformed and normalized features using `StandardScaler` (e.g., `Price`, `Engagement_Level`)
+- Transformed and normalized features using `StandardScaler` (`Price`, `Engagemnt level`)
 
 ### 2. Exploratory Data Analysis (EDA)
 - Visualized distributions and trends using histograms and bar plots(as can be seen in the notebook)
